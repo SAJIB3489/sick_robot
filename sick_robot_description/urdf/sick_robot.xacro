@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<robot name="sick_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find sick_robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find sick_robot_description)/urdf/sick_robot.trans" />
+<xacro:include filename="$(find sick_robot_description)/urdf/sick_robot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0036029775910778254 0.006522716363137433 0.10375272803096819" rpy="0 0 0"/>
+    <mass value="204.02307665368892"/>
+    <inertia ixx="4.396963" iyy="4.515531" izz="8.31199" ixy="0.004469" iyz="0.005662" ixz="-0.089924"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-1.7872220589749965e-07 -0.024999855410611088 -2.550138446105743e-07" rpy="0 0 0"/>
+    <mass value="12.330751165339937"/>
+    <inertia ixx="0.033396" iyy="0.061654" izz="0.033396" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.006961 0.243266 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.006961 0.243266 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-1.78722205867142e-07 0.025000144589388706 -2.5501384456894094e-07" rpy="0 0 0"/>
+    <mass value="12.330751165339937"/>
+    <inertia ixx="0.033396" iyy="0.061654" izz="0.033396" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.006961 -0.256734 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.006961 -0.256734 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidarbody_1">
+  <inertial>
+    <origin xyz="0.047535994631253936 0.0001395908648811234 -0.0010604621676543469" rpy="0 0 0"/>
+    <mass value="7.150020299255188"/>
+    <inertia ixx="0.011055" iyy="0.011285" izz="0.010583" ixy="5e-05" iyz="3.6e-05" ixz="-0.000113"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.12 0.0 -0.235" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/lidarbody_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.12 0.0 -0.235" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/lidarbody_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.0005759955806663719 4.623261478516461e-06 0.025021300385319856" rpy="0 0 0"/>
+    <mass value="2.058982552089957"/>
+    <inertia ixx="0.001281" iyy="0.001281" izz="0.001902" ixy="-0.0" iyz="0.0" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.172451 -1.1e-05 -0.288656" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.172451 -1.1e-05 -0.288656" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sick_robot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev3" type="continuous">
+  <origin xyz="-0.006961 -0.243266 0.1" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Rev4" type="continuous">
+  <origin xyz="-0.006961 0.256734 0.1" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rig1" type="fixed">
+  <origin xyz="0.12 0.0 0.235" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidarbody_1"/>
+</joint>
+
+<joint name="Rig2" type="fixed">
+  <origin xyz="0.052451 1.1e-05 0.053656" rpy="0 0 0"/>
+  <parent link="lidarbody_1"/>
+  <child link="lidar_1"/>
+</joint>
+
+</robot>
