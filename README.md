@@ -11,8 +11,6 @@ This project demonstrates how to implement SLAM (Simultaneous Localization and M
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -64,17 +62,18 @@ roslaunch sick_robot_description display.launch
 roslaunch sick_robot_description mapping.launch
 ```
 
-
-
-
-
-
-
-1. To save the map
-```
-rosrun map_server map_server -f robot_map
-```
-
-2. keyboard controller
+**Drive the robot using keyboard** Open a new Terminal.
 ```
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+If you do not have the package install it using ``sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard``
+
+![simulation](/sick_robot_description/simulation.png)
+
+
+**To save the map**
+```
+rosrun map_server map_saver -f robot_map
+```
+
+![map](/sick_robot_description/gmap.png)
