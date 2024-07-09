@@ -34,9 +34,37 @@ This repository contains the necessary code and instructions to build and run a 
 
 ### Step 1: Clone the Repository
 
-```bash
+```
+mkdir -p catkin_ws/src
+cd catkin_ws/src
 git clone https://github.com/SAJIB3489/sick_robot.git
-cd sick_robot
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src -r -y
+source /opt/ros/noetic/setup.bash
+source ~/catkin_ws/devel/setup.bash
+catkin_make
+```
+
+
+### Step 2: Launch
+
+**Launch gazebo simulation**
+```
+roslaunch sick_robot_description gazebo.launch
+```
+
+
+**Launch RViz** Open a new Terminal.
+```
+roslaunch sick_robot_description display.launch
+```
+
+**Start Gmapping** Open a new Terminal.
+```
+roslaunch sick_robot_description mapping.launch
+```
+
+
 
 
 
