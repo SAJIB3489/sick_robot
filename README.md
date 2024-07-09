@@ -10,11 +10,10 @@ This project demonstrates how to implement SLAM (Simultaneous Localization and M
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Usage](#usage)
 
 ## Overview
 
-This repository contains the necessary code and instructions to build and run a two-wheel robot equipped with SLAM capabilities using the Gmapping algorithm. The robot uses two main wheels for movement and two caster wheels for balance.
+This repository contains the necessary code and instructions to build and run a two-wheel robot equipped, and Sick Robot with SLAM capabilities using the Gmapping algorithm. The robot uses two main wheels for movement and two caster wheels for balance.
 
 ## Features
 
@@ -77,3 +76,6 @@ rosrun map_server map_saver -f robot_map
 ```
 
 ![map](/sick_robot_description/gmap.png)
+
+
+###
