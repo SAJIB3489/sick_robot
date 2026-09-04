@@ -79,3 +79,7 @@ rosrun map_server map_saver -f robot_map
 
 
 **If you face any problem, feel free to create an issue or send an email to me. Thank you.**
+
+# Acknowledgement
+
+- [slam_gmapping](https://github.com/ros-perception/slam_gmapping)
